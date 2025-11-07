@@ -69,7 +69,7 @@ const eventData = {
     ],
     students: [
       { name: "B.Srija", roll: "23A31A43D4", phone: "78539 45101", img: "srija.jpg" },
-      { name: "N.Raghawendra", roll: "23A31A43I1", phone: "91774 26530", img: "raghawendra.jpg" },
+      { name: "N.P.Raghawendra", roll: "23A31A43I1", phone: "91774 26530", img: "raghawendra.jpg" },
       { name: "P.N.D.Akshaya", roll: "23A31A43F8", phone: "63010 96145", img: "akshaya.jpg" },
       { name: "K.Bala Murali Krishna", roll: "23A31A43A5", phone: "63014 23681", img: "bala.jpg" }
     ]
@@ -161,4 +161,5 @@ closeBtn.addEventListener('click', () => {
 window.addEventListener('click', e => {
   if (e.target === modal) modal.style.display = 'none';
 });
+
 
