@@ -1,0 +1,105 @@
+/* Reset & body */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Orbitron', sans-serif;
+    overflow-x: hidden;
+    background: #000;
+}
+
+/* Background Canvas */
+canvas#bg{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: 0;
+}
+
+/* Landing page content */
+.landing-container{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+/* Robot animation */
+.robot-img{
+    width: 200px;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float{
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Poster */
+.poster img{
+    width: 80%;
+    max-width: 700px;
+    margin: 30px 0;
+    display: block;
+    border-radius: 10px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .robot-img{ width:150px; }
+    .poster img{ width:90%; }
+}
+
+/* ---------- REGISTER BUTTON ---------- */
+.register-btn {
+    background: cyan;
+    color: black;
+    border: none;
+    padding: 14px 40px;
+    font-size: 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: 0 0 15px cyan;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.register-btn:hover {
+    background: #00ffff;
+    box-shadow: 0 0 30px cyan;
+    transform: scale(1.05);
+}
+
+/* Tap Anywhere text - matches EBHIGNA style */
+.tap-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    color: cyan;
+    text-shadow: 0 0 15px cyan;
+    letter-spacing: 3px;
+    margin-top: 20px;
+    animation: pulse 1.5s infinite ease-in-out;
+    text-transform: uppercase;
+}
+
+/* Glowing pulsing effect */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 15px cyan, 0 0 30px cyan;
+    }
+    50% {
+        opacity: 0.5;
+        text-shadow: 0 0 5px cyan;
+    }
+}
+

@@ -1,0 +1,323 @@
+/* ---------- BASIC RESET ---------- */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Orbitron', sans-serif;
+  overflow-x: hidden;
+  background: #000;
+  color: white;
+}
+
+/* ---------- BACKGROUND CANVAS ---------- */
+canvas#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ---------- MAIN CONTAINER ---------- */
+.container {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ---------- PAGE HEADER ---------- */
+.page-header h1 {
+  font-size: 60px;
+  color: cyan;
+  margin-bottom: 10px;
+}
+
+.page-header h2 {
+  font-size: 36px;
+  color: #0ff;
+}
+
+.page-header h3, .page-header h4 {
+  margin: 5px 0;
+  color: #ccc;
+}
+
+/* ---------- DEPARTMENT POSTER ---------- */
+.dept-poster img {
+  width: 300px;
+  max-width: 80%;
+  border-radius: 10px;
+  margin: 15px auto;
+  display: block;
+  box-shadow: 0 0 15px cyan;
+}
+
+/* ---------- EVENTS SECTION ---------- */
+.events {
+  margin-top: 40px;
+}
+
+.section-title {
+  color: cyan;
+  font-size: 28px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.event {
+  background: #111;
+  color: white;
+  border: 1px solid cyan;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.event:hover {
+  background: cyan;
+  color: black;
+  box-shadow: 0 0 10px cyan;
+}
+
+/* ---------- EVENT IMAGE STYLING ---------- */
+.event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid cyan;
+  box-shadow: 0 0 15px cyan;
+  margin-bottom: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event:hover .event-img {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px cyan;
+}
+
+.event p {
+  font-size: 18px;
+  color: white;
+  margin: 0;
+  font-weight: 600;
+}
+
+
+/* ---------- COORDINATORS SECTION ---------- */
+.coordinators {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.section-group {
+  margin-bottom: 30px;
+}
+
+.section-group h3 {
+  color: cyan;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+/* ---------- Coordinator Cards ---------- */
+.coord-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.coord-card {
+  background: #111;
+  border: 1px solid cyan;
+  border-radius: 12px;
+  padding: 15px;
+  width: 150px;
+  text-align: center;
+  box-shadow: 0 0 10px cyan;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coord-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px cyan;
+}
+
+.coord-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid cyan;
+  margin-bottom: 10px;
+}
+
+.coord-card p {
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.4;
+}
+
+/* ---------- EVENT POPUP BOX (FINAL) ---------- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #0a0a0a;
+  color: cyan;
+  padding: 30px;
+  border-radius: 15px;
+  width: 720px;          /* wide enough for 4 coordinator boxes */
+  max-width: 95%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 25px cyan;
+  text-align: center;
+  position: relative;
+  animation: popup 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Popup animation */
+@keyframes popup {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  color: red;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: white;
+}
+
+/* Title and text alignment inside popup */
+#modal-name {
+  font-size: 26px;
+  color: cyan;
+  margin-bottom: 10px;
+}
+#modal-text {
+  text-align: left;
+  color: #fff;
+  margin: 0 auto 15px;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+/* Coordinator cards inside popup */
+.popup-coord-section {
+  margin-top: 15px;
+}
+.popup-coord-title {
+  color: cyan;
+  margin: 10px 0;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.popup-coord-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap;   /* ensures all 4 stay in one row */
+}
+.popup-coord-card {
+  background: #111;
+  border: 1px solid cyan;
+  border-radius: 10px;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+  box-shadow: 0 0 10px cyan;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.popup-coord-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px cyan;
+}
+.popup-coord-card img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid cyan;
+  margin-bottom: 8px;
+}
+.popup-coord-card p {
+  font-size: 13px;
+  color: white;
+  line-height: 1.3;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .page-header h1 { font-size: 40px; }
+  .page-header h2 { font-size: 28px; }
+  .event { padding: 8px 15px; }
+  .modal-content {
+    width: 95%;
+    max-height: 85vh;
+    padding: 20px;
+  }
+  .popup-coord-row {
+    flex-wrap: wrap; /* allow wrapping on mobile */
+  }
+}
+
+/* ---------- REGISTER BUTTON ---------- */
+.register-btn {
+  background: cyan;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px cyan;
+  transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+  background: black;
+  color: cyan;
+  box-shadow: 0 0 25px cyan;
+}
+
