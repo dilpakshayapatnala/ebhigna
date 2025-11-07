@@ -40,6 +40,7 @@ window.addEventListener('resize', init);
 init();
 animate();
 
+
 // ---------- EVENT MODAL ----------
 const modal = document.getElementById('modal');
 const modalText = document.getElementById('modal-text');
@@ -47,37 +48,83 @@ const modalName = document.getElementById('modal-name');
 const closeBtn = document.querySelector('.close');
 const events = document.querySelectorAll('.event');
 
-// Faculty coordinators (common for all events)
-const facultyCoordinators = [
-  { name: "M Veerababu", Coordinator: "Faculty Coordinator", img: "veerababu.jpg" },
-  { name: "D Ramesh", Coordinator: "Faculty Coordinator", img: "ramesh.jpg" }
-];
+// Coordinator data for each event
+const eventData = {
+  "Code Jiggle": {
+    faculty: [
+      { name: "Mr.T.Jagadeesh", Coordinator: "Assistant Professor", img: "jagadeesh.jpg" },
+      { name: "Mr.S.S.V.S.Kumar", Coordinator: "Assistant Professor", img: "santosh.jpg" }
+    ],
+    students: [
+      { name: "S.Deepti Shalika", roll: "23A31A4383", phone: "82975 57788", img: "deepti.jpg" },
+      { name: "M.Navaneeth Veer", roll: "23A31A43B2", phone: "95530 98726", img: "navaneeth.jpg" },
+      { name: "M.Sai Jyothi", roll: "23A31A4372", phone: "81259 06061 ", img: "jyothi.jpg" },
+    ]
+  },
 
-// Student coordinators (common for all events)
-const studentCoordinators = [
-  { name: "Umanjani", phone: "📞 9182173933", img: "umanjani.jpg" },
-  { name: "Rajesh", phone: "📞 8919485402", img: "rajesh.jpg" },
-  { name: "Suresh", phone: "📞 9876543210", img: "suresh.jpg" },
-  { name: "Ramu", phone: "📞 9876501234", img: "ramu.jpg" }
-];
+  "Code Golf": {
+    faculty: [
+      { name: "Mrs.T.Tejasvi", Coordinator: "Assistant Professor", img: "tejumam.jpg" },
+      { name: "Mr.D.Ramesh", Coordinator: "Assistant Professor", img: "ramesh.jpg" }
+    ],
+    students: [
+      { name: "B.Srija", roll: "23A31A43D4", phone: "78539 45101", img: "srija.jpg" },
+      { name: "N.Raghawendra", roll: "23A31A43I1", phone: "91774 26530", img: "raghawendra.jpg" },
+      { name: "P.N.D.Akshaya", roll: "23A31A43F8", phone: "63010 96145", img: "akshaya.jpg" },
+      { name: "K.Bala Murali Krishna", roll: "23A31A43A5", phone: "63014 23681", img: "bala.jpg" }
+    ]
+  },
 
+  "Promptopia": {
+    faculty: [
+      { name: "Mr.P.Krishna Chaitanya", Coordinator: "Assistant Professor", img: "kc.jpg" },
+      { name: "Mr.M.Veerababu", Coordinator: "Assistant Professor", img: "veerababu.jpg" }
+    ],
+    students: [
+      { name: "P.Akshaya", roll: "23A31A4381", phone: "93906 56725", img: "pakshaya.jpg" },
+      { name: "D.Devi Priya", roll: "23A31A4368", phone: "96371 33777", img: "priya.jpg" },
+      { name: "Sk.Asma", roll: "23A31A4384", phone: "75699 42784", img: "asma.jpg" },
+      { name: "T.Kranthi Sri", roll: "23A31A4385", phone: "76709 14226", img: "kranthi.jpg" }
+    ]
+  },
+
+  "Escape The Lab": {
+    faculty: [
+      { name: "Mrs.P.Seshu Kumari", Coordinator: "Assistant Professor", img: "seshukumari.jpg" },
+      { name: "Mrs.P.Devi Sravanthi", Coordinator: "Assistant Professor", img: "sravanthi.jpg" }
+    ],
+    students: [
+      { name: "S.Naveen Kumar", roll: "23A31A4357", phone: "70133 96156", img: "naveen.jpg" },
+      { name: "R.Karteek", roll: "23A31A4354", phone: "99485 49321", img: "karteek.jpg" },
+      { name: "M.Tejaswi", roll: "23A31A4318", phone: "79819 25662", img: "tejaswi.jpg" },
+      { name: "P.Lavanya", roll: "23A31A4319", phone: "93906 92334", img: "lavanya.jpg" }
+    ]
+  }
+};
+
+
+// ---------- OPEN POPUP ----------
 events.forEach(event => {
   event.addEventListener('click', () => {
-    const name = event.textContent;
+    const name = event.textContent.trim();
     const description = event.dataset.description;
-    
+    const data = eventData[name];
 
-    // Popup HTML layout
+    if (!data) {
+      alert("No coordinator data found for this event!");
+      return;
+    }
+
+    // Build popup HTML dynamically
     modalName.textContent = name;
     modalText.innerHTML = `
       <h3 style="text-align:center; color:cyan; margin-bottom:10px;">Description</h3>
       <p style="text-align:left; color:white;">${description}</p>
 
-      
       <div class="popup-coord-section">
         <h3 class="popup-coord-title">Faculty Coordinators</h3>
         <div class="popup-coord-row">
-          ${facultyCoordinators.map(f => `
+          ${data.faculty.map(f => `
             <div class="popup-coord-card">
               <img src="${f.img}" alt="${f.name}">
               <p>${f.name}<br>${f.Coordinator}</p>
@@ -89,16 +136,15 @@ events.forEach(event => {
       <div class="popup-coord-section">
         <h3 class="popup-coord-title">Student Coordinators</h3>
         <div class="popup-coord-row">
-          ${studentCoordinators.map(s => `
+          ${data.students.map(s => `
             <div class="popup-coord-card">
               <img src="${s.img}" alt="${s.name}">
-              <p>${s.name}<br>${s.phone}</p>
+              <p>${s.name}<br>${s.roll}<br>${s.phone}</p>
             </div>
           `).join('')}
         </div>
       </div>
 
-      <!-- Register Button -->
       <div style="text-align:center; margin-top:20px;">
         <a href="register.html" class="register-btn" target="_blank">Register Now</a>
       </div>
@@ -112,8 +158,6 @@ closeBtn.addEventListener('click', () => {
   modal.style.display = 'none';
 });
 
-window.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.style.display = 'none';
-  }
+window.addEventListener('click', e => {
+  if (e.target === modal) modal.style.display = 'none';
 });
