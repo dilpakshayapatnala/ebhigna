@@ -65,6 +65,7 @@ events.forEach(event => {
   event.addEventListener('click', () => {
     const name = event.textContent;
     const description = event.dataset.description;
+    
 
     // Popup HTML layout
     modalName.textContent = name;
@@ -72,12 +73,7 @@ events.forEach(event => {
       <h3 style="text-align:center; color:cyan; margin-bottom:10px;">Description</h3>
       <p style="text-align:left; color:white;">${description}</p>
 
-      <h3 style="text-align:center; color:cyan; margin-top:15px;">Guidelines</h3>
-      <ul style="text-align:left; color:white; margin-left:20px;">
-        <li>Participants must register before the event begins.</li>
-        <li>Follow all event rules and maintain fair play.</li>
-      </ul>
-
+      
       <div class="popup-coord-section">
         <h3 class="popup-coord-title">Faculty Coordinators</h3>
         <div class="popup-coord-row">
