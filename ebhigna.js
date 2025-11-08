@@ -90,7 +90,7 @@ const eventData = {
 
   "Escape the Lab": {
     faculty: [
-      { name: "Mrs.P.Seshu Kumari", Coordinator: "Assistant Professor", img: "seshukumari.jpg" },
+      { name: "Mrs.P.Seshu Kumari", Coordinator: "Assistant Professor", img: "skumari.jpg" },
       { name: "Mrs.P.Devi Sravanthi", Coordinator: "Assistant Professor", img: "sravanthi.jpg" }
     ],
     students: [
@@ -161,5 +161,6 @@ closeBtn.addEventListener('click', () => {
 window.addEventListener('click', e => {
   if (e.target === modal) modal.style.display = 'none';
 });
+
 
 
