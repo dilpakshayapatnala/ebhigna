@@ -64,7 +64,7 @@ const eventData = {
 
   "Code Golf": {
     faculty: [
-      { name: "Mrs.T.Tejasvi", Coordinator: "Assistant Professor", img: "tejumam.jpg" },
+      { name: "Mrs.T.Tejasvi", Coordinator: "Assistant Professor", img: "teju.jpg" },
       { name: "Mr.D.Ramesh", Coordinator: "Assistant Professor", img: "ramesh.jpg" }
     ],
     students: [
@@ -161,6 +161,7 @@ closeBtn.addEventListener('click', () => {
 window.addEventListener('click', e => {
   if (e.target === modal) modal.style.display = 'none';
 });
+
 
 
 
