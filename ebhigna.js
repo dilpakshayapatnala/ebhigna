@@ -52,7 +52,7 @@ const events = document.querySelectorAll('.event');
 const eventData = {
   "Code Jiggle": {
     faculty: [
-      { name: "Mr.T.Jagadeesh", Coordinator: "Assistant Professor", img: "jagadeesh.jpg" },
+      { name: "Mr.T.Jagadeesh", Coordinator: "Assistant Professor", img: "jagadeeshsir.jpg" },
       { name: "Mr.S.S.V.S.Kumar", Coordinator: "Assistant Professor", img: "santosh.jpg" }
     ],
     students: [
@@ -161,6 +161,7 @@ closeBtn.addEventListener('click', () => {
 window.addEventListener('click', e => {
   if (e.target === modal) modal.style.display = 'none';
 });
+
 
 
 
