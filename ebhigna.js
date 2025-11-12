@@ -51,6 +51,7 @@ const events = document.querySelectorAll('.event');
 // Coordinator data for each event
 const eventData = {
   "Code Jiggle": {
+    img: "codejiggleposter.jpg",
     faculty: [
       { name: "Mr.T.Jagadeesh", Coordinator: "Assistant Professor", img: "jagadeeshsir.jpg" },
       { name: "Mr.S.S.V.S.Kumar", Coordinator: "Assistant Professor", img: "santosh.jpg" }
@@ -63,6 +64,7 @@ const eventData = {
   },
 
   "Code Golf": {
+    img: "codegolfposter.jpg",
     faculty: [
       { name: "Mrs.T.Tejasvi", Coordinator: "Assistant Professor", img: "teju.jpg" },
       { name: "Mr.D.Ramesh", Coordinator: "Assistant Professor", img: "ramesh.jpg" }
@@ -76,6 +78,7 @@ const eventData = {
   },
 
   "Promptopia": {
+    img: "promptopiaposter.jpg",
     faculty: [
       { name: "Mr.P.Krishna Chaitanya", Coordinator: "Assistant Professor", img: "kc.jpg" },
       { name: "Mr.M.Veerababu", Coordinator: "Assistant Professor", img: "veerababu.jpg" }
@@ -89,6 +92,7 @@ const eventData = {
   },
 
   "Escape the Lab": {
+    img: "escapethelabposter.jpg",
     faculty: [
       { name: "Mrs.P.Seshu Kumari", Coordinator: "Assistant Professor", img: "skumari.jpg" },
       { name: "Mrs.P.Devi Sravanthi", Coordinator: "Assistant Professor", img: "sravanthi.jpg" }
@@ -118,6 +122,10 @@ events.forEach(event => {
     // Build popup HTML dynamically
     modalName.textContent = name;
     modalText.innerHTML = `
+      <div class="popup-event-img">
+        <img src="${data.img}" alt="${name}">
+      </div>
+
       <h3 style="text-align:center; color:cyan; margin-bottom:10px;">Description</h3>
       <p style="text-align:left; color:white;">${description}</p>
 
@@ -161,8 +169,3 @@ closeBtn.addEventListener('click', () => {
 window.addEventListener('click', e => {
   if (e.target === modal) modal.style.display = 'none';
 });
-
-
-
-
-
