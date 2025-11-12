@@ -46,12 +46,17 @@ canvas#bg {
 
 /* ---------- DEPARTMENT POSTER ---------- */
 .dept-poster img {
-  width: 300px;
-  max-width: 80%;
+  width: 600px; /* increased for desktop view */
+  max-width: 85%;
   border-radius: 10px;
   margin: 15px auto;
   display: block;
   box-shadow: 0 0 15px cyan;
+  transition: transform 0.3s ease;
+}
+
+.dept-poster img:hover {
+  transform: scale(1.03);
 }
 
 /* ---------- EVENTS SECTION ---------- */
@@ -121,7 +126,6 @@ canvas#bg {
   margin: 0;
   font-weight: 600;
 }
-
 
 /* ---------- COORDINATORS SECTION ---------- */
 .coordinators {
@@ -197,7 +201,7 @@ canvas#bg {
   color: cyan;
   padding: 30px;
   border-radius: 15px;
-  width: 720px;          /* wide enough for 4 coordinator boxes */
+  width: 720px;
   max-width: 95%;
   max-height: 80vh;
   overflow-y: auto;
@@ -244,6 +248,20 @@ canvas#bg {
   line-height: 1.5;
 }
 
+/* ---------- EVENT POSTER IN POPUP ---------- */
+.popup-event-img {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.popup-event-img img {
+  width: 600px;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid cyan;
+  box-shadow: 0 0 20px cyan;
+  object-fit: cover;
+}
+
 /* Coordinator cards inside popup */
 .popup-coord-section {
   margin-top: 15px;
@@ -258,7 +276,7 @@ canvas#bg {
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: nowrap;   /* ensures all 4 stay in one row */
+  flex-wrap: nowrap;
 }
 .popup-coord-card {
   background: #111;
@@ -293,13 +311,25 @@ canvas#bg {
   .page-header h1 { font-size: 40px; }
   .page-header h2 { font-size: 28px; }
   .event { padding: 8px 15px; }
+
+  /* Poster looks perfect on mobile */
+  .dept-poster img {
+    width: 300px;
+    max-width: 90%;
+  }
+
+  .popup-event-img img {
+    width: 220px;
+  }
+
   .modal-content {
     width: 95%;
     max-height: 85vh;
     padding: 20px;
   }
+
   .popup-coord-row {
-    flex-wrap: wrap; /* allow wrapping on mobile */
+    flex-wrap: wrap;
   }
 }
 
@@ -320,4 +350,3 @@ canvas#bg {
   color: cyan;
   box-shadow: 0 0 25px cyan;
 }
-
