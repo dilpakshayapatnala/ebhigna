@@ -48,10 +48,12 @@ const modalName = document.getElementById('modal-name');
 const closeBtn = document.querySelector('.close');
 const events = document.querySelectorAll('.event');
 
-// Coordinator data for each event
+
+// ---------- EVENT WISE COORDINATORS + REGISTER LINKS ----------
 const eventData = {
   "Code Jiggle": {
     img: "codejiggleposter.jpg",
+    register: "https://forms.gle/tdq4Kn75ZhWL9Q6VA",  // CHANGE THIS LATER
     faculty: [
       { name: "Mr.T.Jagadeesh", Coordinator: "Assistant Professor", img: "jagadeeshsir.jpg" },
       { name: "Mr.S.S.V.S.Kumar", Coordinator: "Assistant Professor", img: "santosh.jpg" }
@@ -59,12 +61,13 @@ const eventData = {
     students: [
       { name: "S.Deepti Shalika", roll: "23A31A4383", phone: "82975 57788", img: "deepti.jpg" },
       { name: "M.Navaneeth Veer", roll: "23A31A43B2", phone: "95530 98726", img: "navaneeth.jpg" },
-      { name: "M.Sai Jyothi", roll: "23A31A4372", phone: "81259 06061 ", img: "jyothi.jpg" },
+      { name: "M.Sai Jyothi", roll: "23A31A4372", phone: "81259 06061", img: "jyothi.jpg" }
     ]
   },
 
   "Code Golf": {
     img: "codegolfposter.jpg",
+    register: "https://forms.gle/UHk4eMwbtoW4otsf9", // CHANGE THIS LATER
     faculty: [
       { name: "Mrs.T.Tejasvi", Coordinator: "Assistant Professor", img: "teju.jpg" },
       { name: "Mr.D.Ramesh", Coordinator: "Assistant Professor", img: "ramesh.jpg" }
@@ -79,6 +82,7 @@ const eventData = {
 
   "Promptopia": {
     img: "promptopiaposter.jpg",
+    register: "https://forms.gle/msMBvczpcTSDchoGA",  // ✅ Your PROPER LINK
     faculty: [
       { name: "Mr.P.Krishna Chaitanya", Coordinator: "Assistant Professor", img: "kc.jpg" },
       { name: "Mr.M.Veerababu", Coordinator: "Assistant Professor", img: "veerababu.jpg" }
@@ -93,6 +97,7 @@ const eventData = {
 
   "Escape the Lab": {
     img: "escapethelabposter.jpg",
+    register: "https://forms.gle/rAH2Z9wpNmXYmubS7", // CHANGE THIS LATER
     faculty: [
       { name: "Mrs.P.Seshu Kumari", Coordinator: "Assistant Professor", img: "skumari.jpg" },
       { name: "Mrs.P.Devi Sravanthi", Coordinator: "Assistant Professor", img: "sravanthi.jpg" }
@@ -119,8 +124,8 @@ events.forEach(event => {
       return;
     }
 
-    // Build popup HTML dynamically
     modalName.textContent = name;
+
     modalText.innerHTML = `
       <div class="popup-event-img">
         <img src="${data.img}" alt="${name}">
@@ -154,7 +159,7 @@ events.forEach(event => {
       </div>
 
       <div style="text-align:center; margin-top:20px;">
-        <a href="register.html" class="register-btn" target="_blank">Register Now</a>
+        <a href="${data.register}" class="register-btn" target="_blank">Register Now</a>
       </div>
     `;
 
