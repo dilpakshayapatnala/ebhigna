@@ -49,11 +49,19 @@ const closeBtn = document.querySelector('.close');
 const events = document.querySelectorAll('.event');
 
 
-// ---------- EVENT WISE COORDINATORS + REGISTER LINKS ----------
+// ---------- EVENT DATA WITH SEPARATE REGISTER LINKS ----------
 const eventData = {
   "Code Jiggle": {
     img: "codejiggleposter.jpg",
-    register: "https://forms.gle/tdq4Kn75ZhWL9Q6VA",  // CHANGE THIS LATER
+    description: "CodeJiggle is a two-round coding event — a 25-minute quiz on programming and aptitude, followed by a 1-hour coding round to design functional solutions testing logic and implementation skills.",
+    register: "https://forms.gle/tdq4Kn75ZhWL9Q6VA",  // CHANGE HERE
+    guidelines: [
+       " Be honest — no malpractice.",
+	" Submit within the time limit.",
+	" Follow organizer instructions.",
+	" Use only approved tools.",
+	" Write original, requirement-based code."
+    ],
     faculty: [
       { name: "Mr.T.Jagadeesh", Coordinator: "Assistant Professor", img: "jagadeeshsir.jpg" },
       { name: "Mr.S.S.V.S.Kumar", Coordinator: "Assistant Professor", img: "santosh.jpg" }
@@ -67,7 +75,14 @@ const eventData = {
 
   "Code Golf": {
     img: "codegolfposter.jpg",
-    register: "https://forms.gle/UHk4eMwbtoW4otsf9", // CHANGE THIS LATER
+    description: "Code Golf is a fun C coding contest where participants solve tasks using the shortest possible code. Correct output is mandatory, and creativity with concise solutions wins.",
+    register: "https://forms.gle/UHk4eMwbtoW4otsf9",  // CHANGE HERE
+    guidelines: [
+      " Use only C language.",
+	" Write the shortest working code.",
+	" Shortest valid code wins.",
+	" Judges’ decision is final."
+    ],
     faculty: [
       { name: "Mrs.T.Tejasvi", Coordinator: "Assistant Professor", img: "teju.jpg" },
       { name: "Mr.D.Ramesh", Coordinator: "Assistant Professor", img: "ramesh.jpg" }
@@ -82,7 +97,12 @@ const eventData = {
 
   "Promptopia": {
     img: "promptopiaposter.jpg",
-    register: "https://forms.gle/msMBvczpcTSDchoGA",  // ✅ Your PROPER LINK
+    description: "Participants view an image and write the most accurate AI prompt to recreate it using tools like DALL·E, Midjourney, or Leonardo AI.",
+    register: "https://forms.gle/msMBvczpcTSDchoGA",   // YOUR LINK ✔
+    guidelines: [
+      " A tool will be provided no other tool is used.",
+	" Laptop is required."
+    ],
     faculty: [
       { name: "Mr.P.Krishna Chaitanya", Coordinator: "Assistant Professor", img: "kc.jpg" },
       { name: "Mr.M.Veerababu", Coordinator: "Assistant Professor", img: "veerababu.jpg" }
@@ -97,7 +117,17 @@ const eventData = {
 
   "Escape the Lab": {
     img: "escapethelabposter.jpg",
-    register: "https://forms.gle/rAH2Z9wpNmXYmubS7", // CHANGE THIS LATER
+    description: "Escape the Lab is a story-based tech challenge where participants solve puzzles, debug clues, and decode messages to unlock rounds and escape the virtual lab.",
+    register: "https://forms.gle/rAH2Z9wpNmXYmubS7",  // CHANGE HERE
+    guidelines: [
+      " Teams of up to 3 members.",
+	" Solve logical, technical, and decoding challenges to progress.",
+	" Each level has puzzles, debugging tasks, and clues tied to the story.",
+	" No phones, internet, or external help allowed.",
+	" Follow the storyline closely — rounds are connected.",
+	" First to escape (finish all rounds) wins.",
+	" Report 15 minutes early for briefing and verification."
+    ],
     faculty: [
       { name: "Mrs.P.Seshu Kumari", Coordinator: "Assistant Professor", img: "skumari.jpg" },
       { name: "Mrs.P.Devi Sravanthi", Coordinator: "Assistant Professor", img: "sravanthi.jpg" }
@@ -116,11 +146,10 @@ const eventData = {
 events.forEach(event => {
   event.addEventListener('click', () => {
     const name = event.textContent.trim();
-    const description = event.dataset.description;
     const data = eventData[name];
 
     if (!data) {
-      alert("No coordinator data found for this event!");
+      alert("No event data found!");
       return;
     }
 
@@ -131,35 +160,37 @@ events.forEach(event => {
         <img src="${data.img}" alt="${name}">
       </div>
 
-      <h3 style="text-align:center; color:cyan; margin-bottom:10px;">Description</h3>
-      <p style="text-align:left; color:white;">${description}</p>
+      <h3 style="text-align:center; color:cyan;">Description</h3>
+      <p style="text-align:left; color:white;">${data.description}</p>
 
-      <div class="popup-coord-section">
-        <h3 class="popup-coord-title">Faculty Coordinators</h3>
-        <div class="popup-coord-row">
-          ${data.faculty.map(f => `
-            <div class="popup-coord-card">
-              <img src="${f.img}" alt="${f.name}">
-              <p>${f.name}<br>${f.Coordinator}</p>
-            </div>
-          `).join('')}
-        </div>
-      </div>
+      <h3 style="text-align:center; color:cyan; margin-top:15px;">Guidelines</h3>
+      <ul style="text-align:left; color:white; margin-left:20px;">
+        ${data.guidelines.map(g => `<li>${g}</li>`).join('')}
+      </ul>
 
-      <div class="popup-coord-section">
-        <h3 class="popup-coord-title">Student Coordinators</h3>
-        <div class="popup-coord-row">
-          ${data.students.map(s => `
-            <div class="popup-coord-card">
-              <img src="${s.img}" alt="${s.name}">
-              <p>${s.name}<br>${s.roll}<br>${s.phone}</p>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-
-      <div style="text-align:center; margin-top:20px;">
+      <!-- REGISTER BUTTON RIGHT AFTER GUIDELINES -->
+      <div style="text-align:center; margin:20px 0;">
         <a href="${data.register}" class="register-btn" target="_blank">Register Now</a>
+      </div>
+
+      <h3 class="popup-coord-title">Faculty Coordinators</h3>
+      <div class="popup-coord-row">
+        ${data.faculty.map(f => `
+          <div class="popup-coord-card">
+            <img src="${f.img}">
+            <p>${f.name}<br>${f.Coordinator}</p>
+          </div>
+        `).join('')}
+      </div>
+
+      <h3 class="popup-coord-title">Student Coordinators</h3>
+      <div class="popup-coord-row">
+        ${data.students.map(s => `
+          <div class="popup-coord-card">
+            <img src="${s.img}">
+            <p>${s.name}<br>${s.roll}<br>${s.phone}</p>
+          </div>
+        `).join('')}
       </div>
     `;
 
@@ -167,10 +198,11 @@ events.forEach(event => {
   });
 });
 
+
 closeBtn.addEventListener('click', () => {
   modal.style.display = 'none';
 });
 
-window.addEventListener('click', e => {
+window.addEventListener('click', (e) => {
   if (e.target === modal) modal.style.display = 'none';
 });
