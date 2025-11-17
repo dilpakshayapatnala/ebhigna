@@ -45,8 +45,8 @@ canvas#bg{
 
 /* Poster */
 .poster img{
-    width: 80%;
-    max-width: 700px;
+    width: 100%;
+    max-width: 900px;
     margin: 30px 0;
     display: block;
     border-radius: 10px;
