@@ -46,8 +46,8 @@ canvas#bg {
 
 /* ---------- DEPARTMENT POSTER ---------- */
 .dept-poster img {
-  width: 600px; /* increased for desktop view */
-  max-width: 85%;
+  width: 900px; /* increased for desktop view */
+  max-width: 90%;
   border-radius: 10px;
   margin: 15px auto;
   display: block;
@@ -350,3 +350,29 @@ canvas#bg {
   color: cyan;
   box-shadow: 0 0 25px cyan;
 }
+
+/* ---------- BIGGER HOD CARD ONLY ---------- */
+
+/* Fix the alignment of Head of the Department section */
+.hod-section h3 {
+    margin-bottom: 40px !important;
+    display: block;
+    position: relative;
+    z-index: 5;
+}
+
+.hod-section .coord-row {
+    margin-top: 30px !important;
+}
+
+/* Bigger HOD card */
+.hod-card {
+    width: 230px !important;
+    padding: 22px !important;
+}
+
+.hod-card img {
+    width: 160px !important;
+    height: 160px !important;
+}
+
